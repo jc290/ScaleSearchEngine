@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  loadbalancer:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:80"
+
+  searchapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8090:80"
+

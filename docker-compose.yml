@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  loadbalancer:
+    image: ${DOCKER_REGISTRY-}loadbalancer
+    build:
+      context: .
+      dockerfile: LoadBalancer/Dockerfile
+    links:
+      - searchapi
+      - searchapi-2
+      - searchapi-3
+      - searchapi-4
+
+  searchapi:
+    image: ${DOCKER_REGISTRY-}searchapi
+    build:
+      context: .
+      dockerfile: SearchAPI/Dockerfile
+    volumes:
+      - "C:/Users/chaudrj/source/repos/ScaleSearchEngine/data:/data"
+
+  searchapi-2:
+    image: ${DOCKER_REGISTRY-}searchapi
+    build:
+      context: .
+      dockerfile: SearchAPI/Dockerfile
+    volumes:
+      - "C:/Users/chaudrj/source/repos/ScaleSearchEngine/data:/data"
+
+  searchapi-3:
+    image: ${DOCKER_REGISTRY-}searchapi
+    build:
+      context: .
+      dockerfile: SearchAPI/Dockerfile
+    volumes:
+      - "C:/Users/chaudrj/source/repos/ScaleSearchEngine/data:/data"
+  
+  searchapi-4:
+    image: ${DOCKER_REGISTRY-}searchapi
+    build:
+      context: .
+      dockerfile: SearchAPI/Dockerfile
+    volumes:
+      - "C:/Users/chaudrj/source/repos/ScaleSearchEngine/data:/data"
+
